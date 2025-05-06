@@ -77,25 +77,25 @@
   <p><strong>Guide Price:</strong> $8,500</p>
   <p>All offers remain strictly confidential. You may submit a bid above or below the guide price — the highest qualifying bid received during the invitation window will be accepted.</p>
 
-  <form id="offerForm" action="https://formspree.io/f/xovdqjbp" method="POST" onsubmit="return showThankYou();">
-    <input type="hidden" name="_redirect" value="false" />
-    <input type="hidden" name="domain" value="Fatu.xyz" />
-    <input type="text" name="name" placeholder="Your Name or Company Name" required />
-    <input type="email" name="email" placeholder="Your Email Address" required />
-    <input type="text" name="offer" placeholder="Your Offer (USD)" required />
-    <button type="submit">Submit Offer</button>
-  </form>
+ <form id="offerForm" action="https://formspree.io/f/xovdqjbp" method="POST" onsubmit="return showThankYou();">
+  <input type="hidden" name="domain" value="Fatu.xyz" />
+  <input type="hidden" name="_redirect" value="false" />
+  <input type="text" name="name" placeholder="Your Name or Company Name" required />
+  <input type="email" name="email" placeholder="Your Email Address" required />
+  <input type="text" name="offer" placeholder="Your Offer (USD)" required />
+  <button type="submit">Submit Offer</button>
+</form>
 
-  <div class="thank-you" id="thankYouMessage">
-    Thank you for your offer. Our team will review it and contact you if you are successful.
-  </div>
+<div class="thank-you" id="thankYouMessage" style="display: none;">
+  Thank you for your offer. Our team will review it and contact you if you are successful.
+</div>
 
-  <script>
-    function showThankYou() {
-      document.getElementById('offerForm').style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'block';
-      return true; // still allow form to submit to Formspree
-    }
-  </script>
+<script>
+  function showThankYou() {
+    document.getElementById('offerForm').style.display = 'none';
+    document.getElementById('thankYouMessage').style.display = 'block';
+    return true; // allow the form to submit to Formspree
+  }
+</script>
 </body>
 </html>
