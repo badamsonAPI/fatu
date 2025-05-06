@@ -94,22 +94,29 @@
   const thankYouMessage = document.getElementById('thankYouMessage');
 
   form.addEventListener('submit', async function (e) {
-    e.preventDefault();
+    e.preventDefault(); // stops default submission & redirect
 
     const data = new FormData(form);
 
-    await fetch('https://formspree.io/f/xovdqjbp', {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+    try {
+      const response = await fetch('https://formspree.io/f/xovdqjbp', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-    form.style.display = 'none';
-    thankYouMessage.style.display = 'block';
+      if (response.ok) {
+        form.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+      } else {
+        alert('There was an issue submitting the form.');
+      }
+    } catch (error) {
+      alert('Submission failed. Please try again.');
+    }
   });
 </script>
-
 </body>
 </html>
